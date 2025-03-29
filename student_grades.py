@@ -1,7 +1,9 @@
 import streamlit as st
 
+
 # 🎨 Set Page Configuration
 st.set_page_config(page_title="Student Grades Calculator", page_icon="🎓", layout="wide")
+st.image(["GRADE.png"])
 
 # 🎨 Custom CSS for Styling
 st.markdown(
@@ -78,9 +80,16 @@ if st.button("🔄 Reset Calculator"):
     st.session_state.average = None
     st.session_state.grade = None
     st.session_state.calculated = False
-    st.experimental_rerun()
+    st.rerun()
 
 # 📌 SIDEBAR WITH TIPS & CONTACT INFO
+
+col1, col2 = st.sidebar.columns(2)
+with col1:
+        st.sidebar.image("GRADE.png", width=300)
+with col2:
+        st.sidebar.image("https://cdn-icons-png.flaticon.com/512/2992/2992884.png", width=250)
+
 st.sidebar.title("📌 Study Tips")
 st.sidebar.info("""
 - ✅ **Practice makes perfect!** Solve problems daily.
@@ -88,6 +97,10 @@ st.sidebar.info("""
 - ⏳ **Manage your time** effectively during exams.
 - 🔄 **Revise regularly** to reinforce learning.
 """)
+
+st.sidebar.markdown("---")
+# Footer
+st.sidebar.markdown("<p style='text-align: center; color: grey;'>Build with ❤️ By Ismail Ahmed Shah</p>", unsafe_allow_html=True)
 
 # 📬 Contact Section
 st.sidebar.markdown("---")
